@@ -5,6 +5,7 @@ import { SummaryCards } from '../components/SummaryCards';
 import { FilterBar } from '../components/FilterBar';
 import { LessonCard } from '../components/LessonCard';
 import { LessonFormModal } from '../components/LessonFormModal';
+import { ConfirmModal } from '../components/ConfirmModal';
 import type { LessonPlan } from '../interfaces';
 
 export const Dashboard = () => {
@@ -15,6 +16,9 @@ export const Dashboard = () => {
   
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingPlan, setEditingPlan] = useState<LessonPlan | undefined>(undefined);
+  
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [planToDelete, setPlanToDelete] = useState<string | null>(null);
 
   const filteredPlans = plans.filter(plan => {
     const matchesSearch = 
@@ -42,6 +46,18 @@ export const Dashboard = () => {
     }
   };
 
+  const handleDeleteClick = (id: string) => {
+    setPlanToDelete(id);
+    setIsDeleteModalOpen(true);
+  };
+
+  const confirmDelete = () => {
+    if (planToDelete) {
+      deletePlan(planToDelete);
+      setPlanToDelete(null);
+    }
+  };
+
   return (
     <div className="min-h-screen pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -64,7 +80,7 @@ export const Dashboard = () => {
           />
 
           {filteredPlans.length === 0 ? (
-            <div className="bg-white rounded-3xl p-16 text-center shadow-card border border-slate-50 mt-8">
+            <div className="glass-panel rounded-3xl p-16 text-center mt-8">
               <div className="w-24 h-24 bg-primary-50 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-sm">
                 <span className="text-4xl block translate-y-1">📚</span>
               </div>
@@ -82,7 +98,7 @@ export const Dashboard = () => {
                   key={plan.id} 
                   plan={plan} 
                   onEdit={handleEdit} 
-                  onDelete={deletePlan} 
+                  onDelete={handleDeleteClick} 
                 />
               ))}
             </div>
@@ -95,6 +111,17 @@ export const Dashboard = () => {
         onClose={() => setIsModalOpen(false)} 
         onSave={handleSave} 
         initialData={editingPlan} 
+      />
+
+      <ConfirmModal 
+        isOpen={isDeleteModalOpen}
+        onClose={() => setIsDeleteModalOpen(false)}
+        onConfirm={confirmDelete}
+        title="Planı Sil"
+        message="Bu ders planını silmek istediğinize emin misiniz? Bu işlem geri alınamaz."
+        confirmText="Evet, Sil"
+        cancelText="İptal"
+        type="danger"
       />
     </div>
   );

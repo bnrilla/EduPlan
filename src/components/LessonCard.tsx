@@ -9,9 +9,9 @@ interface LessonCardProps {
 
 export const LessonCard = ({ plan, onEdit, onDelete }: LessonCardProps) => {
   const statusColors: Record<LessonStatus, string> = {
-    'pending': 'bg-amber-100 text-amber-700',
-    'in-progress': 'bg-blue-100 text-blue-700',
-    'completed': 'bg-emerald-100 text-emerald-700',
+    'pending': 'bg-amber-100/80 text-amber-700 border border-amber-200/50',
+    'in-progress': 'bg-blue-100/80 text-blue-700 border border-blue-200/50',
+    'completed': 'bg-emerald-100/80 text-emerald-700 border border-emerald-200/50',
   };
 
   const statusTags: Record<LessonStatus, string> = {
@@ -21,29 +21,29 @@ export const LessonCard = ({ plan, onEdit, onDelete }: LessonCardProps) => {
   };
 
   return (
-    <div className="bg-white rounded-3xl p-6 shadow-card hover:shadow-softHover transition duration-300 border border-slate-50 flex flex-col h-full relative group">
+    <div className="glass-panel glass-panel-hover rounded-[2rem] p-6 flex flex-col h-full relative group">
       <div className="flex justify-between items-start mb-4">
         <div>
-          <span className="text-xs font-bold uppercase tracking-wider text-primary-500 mb-1.5 block">{plan.course}</span>
+          <span className="text-xs font-bold uppercase tracking-wider text-primary-600 mb-1.5 block drop-shadow-sm">{plan.course}</span>
           <h3 className="text-xl font-bold text-slate-800 leading-tight">{plan.topic}</h3>
         </div>
-        <span className={`text-xs px-3 py-1.5 rounded-full font-semibold whitespace-nowrap ml-2 ${statusColors[plan.status]}`}>
+        <span className={`text-xs px-3 py-1.5 rounded-full font-bold whitespace-nowrap ml-2 backdrop-blur-md shadow-sm ${statusColors[plan.status]}`}>
           {statusTags[plan.status]}
         </span>
       </div>
       
-      <p className="text-slate-500 text-sm flex-1 mb-6 line-clamp-3 leading-relaxed">
+      <p className="text-slate-600 text-sm flex-1 mb-6 line-clamp-3 leading-relaxed font-medium">
         {plan.notes || "Not eklenmemiş."}
       </p>
       
-      <div className="flex justify-between items-center bg-slate-50/80 p-4 rounded-2xl mt-auto">
+      <div className="flex justify-between items-center bg-white/40 backdrop-blur-md p-4 rounded-2xl mt-auto border border-white/50 shadow-inner">
         <div className="flex gap-4">
-          <div className="flex items-center gap-1.5 text-sm text-slate-500 font-medium">
-            <FaCalendarAlt className="text-slate-400" />
+          <div className="flex items-center gap-1.5 text-sm text-slate-600 font-semibold">
+            <FaCalendarAlt className="text-primary-400" />
             <span>{plan.date}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-sm text-slate-500 font-medium">
-            <FaClock className="text-slate-400" />
+          <div className="flex items-center gap-1.5 text-sm text-slate-600 font-semibold">
+            <FaClock className="text-primary-400" />
             <span>{plan.duration}dk</span>
           </div>
         </div>
@@ -51,17 +51,17 @@ export const LessonCard = ({ plan, onEdit, onDelete }: LessonCardProps) => {
         <div className="flex gap-2">
           <button 
             onClick={() => onEdit(plan)}
-            className="w-8 h-8 rounded-full bg-white text-slate-400 hover:text-primary-600 hover:bg-primary-50 flex items-center justify-center transition shadow-sm border border-slate-100"
+            className="w-9 h-9 rounded-full bg-white/80 text-slate-500 hover:text-primary-600 hover:bg-white flex items-center justify-center transition shadow-sm border border-white/60 hover:shadow-soft"
             title="Düzenle"
           >
-            <FaEdit className="text-xs" />
+            <FaEdit className="text-sm" />
           </button>
           <button 
             onClick={() => onDelete(plan.id)}
-            className="w-8 h-8 rounded-full bg-white text-slate-400 hover:text-red-500 hover:bg-red-50 flex items-center justify-center transition shadow-sm border border-slate-100"
+            className="w-9 h-9 rounded-full bg-white/80 text-slate-500 hover:text-red-500 hover:bg-white flex items-center justify-center transition shadow-sm border border-white/60 hover:shadow-soft"
             title="Sil"
           >
-            <FaTrash className="text-xs" />
+            <FaTrash className="text-sm" />
           </button>
         </div>
       </div>

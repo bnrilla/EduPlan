@@ -20,21 +20,18 @@ export const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-slate-50">
-      <div className="flex-1 flex items-center justify-center p-8 sm:p-12 relative overflow-hidden">
-        {/* Background decorative blobs */}
-        <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-primary-200 rounded-full mix-blend-multiply filter blur-[100px] opacity-60"></div>
-        <div className="absolute bottom-[-10%] left-[-5%] w-96 h-96 bg-primary-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-60"></div>
+    <div className="min-h-screen flex bg-transparent relative z-10">
+      <div className="flex-1 flex items-center justify-center p-8 sm:p-12 relative z-10">
         
-        <div className="w-full max-w-xl bg-white p-10 rounded-[2rem] shadow-card border border-slate-50 relative z-10">
-          <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-700 rounded-[1.25rem] flex items-center justify-center mb-8 shadow-soft">
-            <FaGraduationCap className="text-white text-3xl" />
+        <div className="w-full max-w-xl glass-panel p-10 sm:p-12 rounded-[2.5rem] shadow-2xl relative z-10">
+          <div className="w-20 h-20 bg-gradient-to-br from-primary-500 to-primary-700 rounded-[1.75rem] flex items-center justify-center mb-8 shadow-softHover">
+            <FaGraduationCap className="text-white text-4xl" />
           </div>
-          <h2 className="text-3xl font-extrabold text-slate-800 mb-2">Hesap Oluştur ✨</h2>
-          <p className="text-slate-500 mb-8 font-medium">Devam etmek için öğretmen hesabınızı oluşturun</p>
+          <h2 className="text-4xl font-extrabold text-slate-800 mb-3 drop-shadow-sm">Hesap Oluştur ✨</h2>
+          <p className="text-slate-500 mb-10 font-semibold text-lg">Devam etmek için öğretmen hesabınızı oluşturun</p>
           
           {error && (
-            <div className="bg-red-50 text-red-600 p-4 rounded-[1rem] mb-6 text-sm font-medium border border-red-100">
+            <div className="bg-red-50/80 backdrop-blur-md text-red-600 p-4 rounded-[1.25rem] mb-6 text-sm font-bold border border-red-200/50 shadow-sm">
               {error}
             </div>
           )}
@@ -42,74 +39,74 @@ export const Register = () => {
           <form onSubmit={handleRegister} className="space-y-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-bold text-slate-700 mb-2">Ad</label>
+                <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Ad</label>
                 <input 
                   required
                   type="text" 
                   value={formData.firstName}
                   onChange={(e) => setFormData({...formData, firstName: e.target.value})}
-                  className="w-full bg-slate-50 py-3.5 px-4 rounded-[1.25rem] border-none outline-none focus:ring-2 focus:ring-primary-300 text-slate-700 transition"
+                  className="w-full bg-white/60 backdrop-blur-md py-4 px-5 rounded-[1.5rem] border border-white/50 outline-none focus:ring-2 focus:ring-primary-400 text-slate-800 transition shadow-inner font-medium text-lg placeholder-slate-400"
                   placeholder="Ahmet"
                 />
               </div>
               <div>
-                <label className="block text-sm font-bold text-slate-700 mb-2">Soyad</label>
+                <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Soyad</label>
                 <input 
                   required
                   type="text" 
                   value={formData.lastName}
                   onChange={(e) => setFormData({...formData, lastName: e.target.value})}
-                  className="w-full bg-slate-50 py-3.5 px-4 rounded-[1.25rem] border-none outline-none focus:ring-2 focus:ring-primary-300 text-slate-700 transition"
+                  className="w-full bg-white/60 backdrop-blur-md py-4 px-5 rounded-[1.5rem] border border-white/50 outline-none focus:ring-2 focus:ring-primary-400 text-slate-800 transition shadow-inner font-medium text-lg placeholder-slate-400"
                   placeholder="Yılmaz"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-2">E-posta Adresi</label>
+              <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">E-posta Adresi</label>
               <input 
                 required
                 type="email" 
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full bg-slate-50 py-3.5 px-4 rounded-[1.25rem] border-none outline-none focus:ring-2 focus:ring-primary-300 text-slate-700 transition"
+                className="w-full bg-white/60 backdrop-blur-md py-4 px-5 rounded-[1.5rem] border border-white/50 outline-none focus:ring-2 focus:ring-primary-400 text-slate-800 transition shadow-inner font-medium text-lg placeholder-slate-400"
                 placeholder="ogretmen@okul.com"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-2">Uzmanlık Alanı (Branş)</label>
+              <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Uzmanlık Alanı (Branş)</label>
               <input 
                 required
                 type="text" 
                 value={formData.expertise}
                 onChange={(e) => setFormData({...formData, expertise: e.target.value})}
-                className="w-full bg-slate-50 py-3.5 px-4 rounded-[1.25rem] border-none outline-none focus:ring-2 focus:ring-primary-300 text-slate-700 transition"
+                className="w-full bg-white/60 backdrop-blur-md py-4 px-5 rounded-[1.5rem] border border-white/50 outline-none focus:ring-2 focus:ring-primary-400 text-slate-800 transition shadow-inner font-medium text-lg placeholder-slate-400"
                 placeholder="Örn: Matematik, Tarih"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-2">Kısa Biyografi</label>
+              <label className="block text-sm font-bold text-slate-700 mb-2 uppercase tracking-wide">Kısa Biyografi</label>
               <textarea 
                 rows={3}
                 value={formData.bio}
                 onChange={(e) => setFormData({...formData, bio: e.target.value})}
-                className="w-full bg-slate-50 py-3.5 px-4 rounded-[1.25rem] border-none outline-none focus:ring-2 focus:ring-primary-300 text-slate-700 transition resize-none"
+                className="w-full bg-white/60 backdrop-blur-md py-4 px-5 rounded-[1.5rem] border border-white/50 outline-none focus:ring-2 focus:ring-primary-400 text-slate-800 transition shadow-inner font-medium text-lg placeholder-slate-400 resize-none"
                 placeholder="Kendinizden biraz bahsedin..."
               ></textarea>
             </div>
             
             <button 
               type="submit" 
-              className="w-full py-4 rounded-[1.25rem] font-bold text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 shadow-soft hover:shadow-softHover transition mt-4"
+              className="w-full py-4 rounded-[1.5rem] font-bold text-lg text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 shadow-soft hover:shadow-softHover transition mt-6 transform hover:-translate-y-1"
             >
               Kaydı Tamamla
             </button>
           </form>
 
-          <p className="text-center text-slate-500 mt-8 font-medium">
-            Zaten bir hesabınız var mı? <Link to="/login" className="text-primary-600 font-bold hover:underline">Giriş Yapın</Link>
+          <p className="text-center text-slate-500 mt-10 font-medium">
+            Zaten bir hesabınız var mı? <Link to="/login" className="text-primary-600 font-bold hover:text-primary-700 transition ml-1 hover:underline">Giriş Yapın</Link>
           </p>
         </div>
       </div>
