@@ -18,6 +18,7 @@ export const Login = () => {
     }
   };
 
+  return (
     <div className="min-h-screen flex bg-transparent relative z-10">
       <div className="flex-1 hidden lg:flex items-center justify-center p-12 relative">
         <div className="max-w-lg text-slate-800 z-10 relative">
@@ -74,4 +75,5 @@ export const Login = () => {
         </div>
       </div>
     </div>
+  );
 };
