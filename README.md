@@ -50,7 +50,7 @@ Proje kapsamında aşağıdaki işlemler gerçekleştirilmiştir:
 
 ## 🖼️ Ekran Görüntüsü
 
-![EduPlan Screenshot](./screenshot.png)
+![EduPlan Screenshot](./EduPlan_EkranGoruntusu.png)
 
 ---
 
