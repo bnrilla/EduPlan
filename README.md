@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# 📚 EduPlan – Web Geliştirme Projesi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EduPlan, web geliştirme eğitimi kapsamında öğrenilen modern teknolojiler kullanılarak geliştirilmiş bir ders planlama uygulamasıdır.  
+Bu uygulama, öğretmenlerin ders planlarını oluşturmasını, düzenlemesini ve yönetmesini sağlar.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🎯 Projenin Amacı
 
-## React Compiler
+Bu proje ile;
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- HTML, CSS ve JavaScript temellerini pekiştirmek  
+- Modern JavaScript kütüphaneleri (React) kullanmak  
+- Gerçek bir frontend projesi geliştirmek  
+- Öğrenilen kavramları bütüncül şekilde uygulamak  
 
-## Expanding the ESLint configuration
+amaçlanmıştır.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Kullanılan Teknolojiler
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- ReactJS  
+- TypeScript  
+- Vite  
+- React Router DOM  
+- Tailwind CSS  
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📁 Proje Yapısı
+src/
+├── components/
+├── pages/
+├── interfaces/
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## ⚙️ Uygulanan İşlemler (CRUD)
+
+Proje kapsamında aşağıdaki işlemler gerçekleştirilmiştir:
+
+- ➕ **Ekleme (Create):** Yeni ders planı oluşturma  
+- 📋 **Listeleme (Read):** Ders planlarını görüntüleme  
+- ✏️ **Güncelleme (Update):** Mevcut ders planlarını düzenleme  
+- ❌ **Silme (Delete):** Ders planlarını silme  
+
+---
+
+## 🖼️ Ekran Görüntüsü
+
+![EduPlan Screenshot](./EduPlan_EkranGoruntusu.png)
+
+---
+
+## 🚀 Kurulum ve Çalıştırma
+
+Projeyi çalıştırmak için aşağıdaki adımları takip ediniz:
+
+```bash
+git clone https://github.com/bnrilla/EduPlan.git
+cd EduPlan
+npm install
+npm run dev
